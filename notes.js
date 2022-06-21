@@ -22,4 +22,8 @@
 
 // server-side - fetches data on request each time before rendereing page
 
+// not pre-generated in advance during build time or every couple of seconds but it's really code that runs on the server only, so only after you deployed it, and which is then re-executed for every incoming request. And that code is added to a function called getServerSideProps.
 
+// can only be added to the page component file
+
+// you should only use either getStaticProps, or getServerSideProps because they kind of clash.
