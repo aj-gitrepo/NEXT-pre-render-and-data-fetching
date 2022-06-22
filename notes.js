@@ -41,4 +41,25 @@
 
 // in such cases, it might make the most sense to use the traditional approach of writing some code in your react components may be with user fact and fetch, Q fetch data from some API from inside the client side react application. So not from inside get static props or get service side props, but really from inside the component, so that this code only runs once the code executes in the client, not on the server.
 
+// client side data fetching
+// create firebase project
+// here using realtime database -> create database -> next -> start in Test mode -> 
+// https://next-datafetching-42faa-default-rtdb.firebaseio.com/ (to fetch data from the hardcoded db)
+// https://next-datafetching-42faa-default-rtdb.firebaseio.com/sales.json (add sales.json at end)
+// create hardccoded database 
 
+// sales
+  // s1
+    // username: Max
+    // volume: 100
+  // s2
+    // username: Manuel
+    // volume: 50
+
+// You must now add a default "fetcher" when working with useSWR:
+// useSWR(<request-url>, (url) => fetch(url).then(res => res.json()))
+
+// SWR - State While Revalidate
+// this is a hook which, under the hood, still will send a HTTP request by default using the fetch API, which we also used, but it gives you a couple of nice built in features like caching and automatic revalidation, retries on error. And you don't have to write all that code on your own.
+
+// yarn add swr
