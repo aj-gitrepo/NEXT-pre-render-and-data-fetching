@@ -27,3 +27,18 @@
 // can only be added to the page component file
 
 // you should only use either getStaticProps, or getServerSideProps because they kind of clash.
+
+// this only executes on the server after deployment and also on our development server here, but it's not statically pre-generated.
+
+// here is no need for pre-generated paths like in getStaticPaths, as the pages are rendered from the server side (the function getServerSideProps is run on every req).
+
+
+// if you have stock data which you show on some page and that data changes multiple times every second, pre fetching and pre rendering might not make too much sense because you will always see outdated data when you visit this page. So in such a case, just showing a loading spinner when you visit the page, and then fetching the very latest data for you, and maybe updating that data in the background then might be the best user experience. Another example would be highly user-specific data. 
+
+// For example, the last orders in an online shop. If you are in your account and your user profile and you view that data, that could be an example where we don't really need to pre-render a page. Definitely not for search engines because they won't see your private profile, and also not necessarily for the user experience because if we go to this page, we might be more than fine with just waiting a second for the data to be loaded on the client and having a quicker navigation to the page might be more important than having the data available right from the start.
+
+// Or considered a case that you have partial data. So let's say you have like a dashboard page with a lots of different pieces of data, lots of different kinds of data, in such a case, loading all these different pieces, which make up the overall dashboard might just slow down the request if you do that on the server, and pre rendering it statically during build time might also not make sense because it's personal data or because it's changing a lot. So in such a scenario, it would again, probably make sense to fetch that data on the client, so from inside the regular react app, once a user navigated to that page.
+
+// in such cases, it might make the most sense to use the traditional approach of writing some code in your react components may be with user fact and fetch, Q fetch data from some API from inside the client side react application. So not from inside get static props or get service side props, but really from inside the component, so that this code only runs once the code executes in the client, not on the server.
+
+

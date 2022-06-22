@@ -30,7 +30,7 @@ const getData = async() => {
   return data;
 }
 
-export async function getStaticProps(context) {
+export async function getStaticProps(context) { //context gives access to params
   const { params } = context;
   const productId = params.pid; //from file name
 
