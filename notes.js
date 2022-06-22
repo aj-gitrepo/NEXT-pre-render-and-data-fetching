@@ -63,3 +63,7 @@
 // this is a hook which, under the hood, still will send a HTTP request by default using the fetch API, which we also used, but it gives you a couple of nice built in features like caching and automatic revalidation, retries on error. And you don't have to write all that code on your own.
 
 // yarn add swr
+
+// this hook wants at least one argument, which is an identifier for the request it should send, typically, the URL of that request. And it's also called an identifier because this hook will bundle multiple requests to the same URL, which are sent in a certain timeframe into one request to avoid sending dozens of small requests
+
+// optional second argument is a fetcher function that describes how the request should be sent
